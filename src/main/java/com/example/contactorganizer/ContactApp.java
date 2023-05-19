@@ -49,6 +49,11 @@ public class ContactApp extends Application {
             contact.setFirstName(event.getNewValue());
         });
 
+        lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        lastNameColumn.setOnEditCommit(event -> {
+            Contact contact = event.getRowValue();
+            contact.setFirstName(event.getNewValue());
+        });
 
         emailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         emailColumn.setOnEditCommit(event -> {
@@ -56,6 +61,17 @@ public class ContactApp extends Application {
             contact.setEmail(event.getNewValue());
         });
 
+        secondaryEmailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        secondaryEmailColumn.setOnEditCommit(event -> {
+            Contact contact = event.getRowValue();
+            contact.setEmail(event.getNewValue());
+        });
+
+        phoneColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        phoneColumn.setOnEditCommit(event -> {
+            Contact contact = event.getRowValue();
+            contact.setEmail(event.getNewValue());
+        });
 
         // Add columns to the TableView
         tableView.getColumns().addAll(firstNameColumn, lastNameColumn, emailColumn, secondaryEmailColumn, phoneColumn);
